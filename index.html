@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Xanthe & Tom's Wedding</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>
+    if (sessionStorage.getItem('authenticated') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Xanthe & Tom</h1>
+    <p>13th June 2026 · Ashmead House, Cheltenham</p>
+  </header>
+
+  <nav>
+    <a href="rsvp.html">RSVP</a>
+    <a href="travel.html">Travel</a>
+    <a href="story.html">Our Story</a>
+    <a href="schedule.html">Schedule</a>
+  </nav>
+
+  <main>
+    <h2>Welcome</h2>
+    <p>We can't wait to celebrate with you at Ashmead House. Arrive from 2pm for the ceremony at 2:30pm. Carriages at midnight!</p>
+    <p>Location: <strong>Leckhampton Hill, Cheltenham, GL53 9QH</strong> <br>
+    (Use What3Words: <em>rotations.compose.website</em>)</p>
+  </main>
+
+  <footer>© Xanthe & Tom 2026</footer>
+</body>
+</html>
