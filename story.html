@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,24 +19,69 @@
 
   <main>
     <p>Here are a few snapshots of us – from hilltops to Christmas parties, and everything in between.</p>
-    <div id="slideshow">
-      <img id="slideshow-image" src="assets/images/photo_1.jpg" alt="Xanthe and Tom">
-    </div>
+    <div id="gallery"></div>
   </main>
 
   <footer>© Xanthe & Tom 2026</footer>
 
   <script>
-    const images = ['photo_1.jpg', 'photo_2.jpg', 'photo_3.jpg', 'photo_4.jpg', 'photo_5.jpg', 'photo_6.jpg', 'photo_7.jpg', 'photo_8.jpg', 'photo_9.jpg', 'photo_10.jpg'];
-    const imgEl = document.getElementById('slideshow-image');
-    let current = 0;
+    const imageFilenames = [
+      "photo_1.jpg", "photo_2.jpg", "photo_3.jpg", "photo_4.jpg", "photo_5.jpg",
+      "photo_6.jpg", "photo_7.jpg", "photo_8.jpg", "photo_9.jpg", "photo_10.jpg"
+    ];
 
-    function showNext() {
-      current = Math.floor(Math.random() * images.length);
-      imgEl.src = "assets/images/" + images[current];
+    const displayed = new Set();
+    const galleryCells = [];
+
+    function setupGallery() {
+      const container = document.getElementById("gallery");
+      const pool = [...imageFilenames];
+      shuffle(pool);
+      for (let i = 0; i < 4; i++) {
+        const img = document.createElement("img");
+        img.src = "assets/images/" + pool[i];
+        const div = document.createElement("div");
+        div.className = "gallery-cell";
+        div.appendChild(img);
+        container.appendChild(div);
+        galleryCells.push(img);
+        displayed.add(pool[i]);
+      }
+      rotateImages();
     }
 
-    setInterval(showNext, 3000);  // Change image every 3 seconds
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+
+    function rotateImages() {
+      setInterval(() => {
+        const pool = imageFilenames.filter(name => ![...displayed].includes(name));
+        if (pool.length === 0) {
+          displayed.clear();
+          return;
+        }
+        const cellIndex = Math.floor(Math.random() * galleryCells.length);
+        const newImage = pool[Math.floor(Math.random() * pool.length)];
+        const imgEl = galleryCells[cellIndex];
+        displayed.add(newImage);
+
+        const fadeOut = () => {
+          imgEl.style.opacity = 0;
+          setTimeout(() => {
+            imgEl.src = "assets/images/" + newImage;
+            imgEl.style.opacity = 1;
+          }, 1000);
+        };
+
+        fadeOut();
+      }, 4000);
+    }
+
+    document.addEventListener("DOMContentLoaded", setupGallery);
   </script>
 </body>
 </html>
