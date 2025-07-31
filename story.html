@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Story – Xanthe & Tom</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Our Story</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="rsvp.html">RSVP</a>
+    <a href="travel.html">Travel</a>
+    <a href="schedule.html">Schedule</a>
+  </nav>
+
+  <main>
+    <p>Here are a few snapshots of us – from hilltops to Christmas parties, and everything in between.</p>
+    <div id="slideshow">
+      <img id="slideshow-image" src="assets/images/photo_1.jpg" alt="Xanthe and Tom">
+    </div>
+  </main>
+
+  <footer>© Xanthe & Tom 2026</footer>
+
+  <script>
+    const images = ['photo_1.jpg', 'photo_2.jpg', 'photo_3.jpg', 'photo_4.jpg', 'photo_5.jpg', 'photo_6.jpg', 'photo_7.jpg', 'photo_8.jpg', 'photo_9.jpg', 'photo_10.jpg'];
+    const imgEl = document.getElementById('slideshow-image');
+    let current = 0;
+
+    function showNext() {
+      current = Math.floor(Math.random() * images.length);
+      imgEl.src = "assets/images/" + images[current];
+    }
+
+    setInterval(showNext, 3000);  // Change image every 3 seconds
+  </script>
+</body>
+</html>

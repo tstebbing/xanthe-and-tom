@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Password</title>
+  <style>
+    body {{
+      font-family: 'Georgia', serif;
+      background-color: #f7d1d1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }}
+    input {{
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }}
+    button {{
+      padding: 10px 20px;
+      margin-top: 1rem;
+      background-color: #e95659;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }}
+  </style>
+</head>
+<body>
+  <h2>Welcome! Please enter the wedding password to continue.</h2>
+  <input type="password" id="pw" placeholder="Enter password">
+  <button onclick="checkPassword()">Enter</button>
+
+  <script>
+    function checkPassword() {{
+      const pw = document.getElementById('pw').value;
+      if (pw === 'XantheTom') {{
+        sessionStorage.setItem('authenticated', 'true');
+        window.location.href = 'index.html';
+      }} else {{
+        alert('Incorrect password. Please try again.');
+      }}
+    }}
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;700&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #fdfaf6;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #f7d1d1;
+  color: #333;
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #e0c7c7;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin: 0 0 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #555;
+}
+
+nav {
+  background-color: #e95659;
+  padding: 0.75rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+}
+
+main h2 {
+  font-family: 'Playfair Display', serif;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+main p {
+  font-size: 1.05rem;
+  color: #444;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: #f2e8df;
+  color: #666;
+  margin-top: 3rem;
+}
+
+#slideshow {
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
